@@ -53,10 +53,6 @@ spec:
         env:
         - name: PORT
           value: "8080"
-        - name: DISABLE_TRACING
-          value: "1"
-        - name: DISABLE_PROFILER
-          value: "1"
         readinessProbe:
           periodSeconds: 5
           exec:
@@ -138,12 +134,6 @@ spec:
             value: "currencyservice:7000"
           - name: CART_SERVICE_ADDR
             value: "cartservice:7070"
-          - name: DISABLE_STATS
-            value: "1"
-          - name: DISABLE_TRACING
-            value: "1"
-          - name: DISABLE_PROFILER
-            value: "1"
           resources:
             requests:
               cpu: 100m
@@ -210,12 +200,6 @@ spec:
           value: "8080"
         - name: PRODUCT_CATALOG_SERVICE_ADDR
           value: "productcatalogservice:3550"
-        - name: DISABLE_TRACING
-          value: "1"
-        - name: DISABLE_PROFILER
-          value: "1"
-        - name: DISABLE_DEBUGGER
-          value: "1"
         resources:
           requests:
             cpu: 100m
@@ -307,10 +291,6 @@ spec:
           # # When not set, defaults to "local" unless running in GKE, otherwies auto-sets to gcp 
           # - name: ENV_PLATFORM 
           #   value: "aws"
-          - name: DISABLE_TRACING
-            value: "1"
-          - name: DISABLE_PROFILER
-            value: "1"
           # - name: CYMBAL_BRANDING
           #   value: "true"
           resources:
@@ -382,12 +362,6 @@ spec:
         env:
         - name: PORT
           value: "50051"
-        - name: DISABLE_TRACING
-          value: "1"
-        - name: DISABLE_PROFILER
-          value: "1"
-        - name: DISABLE_DEBUGGER
-          value: "1"
         readinessProbe:
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:50051"]
@@ -444,18 +418,12 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.4.0
+        image: asia-south1-docker.pkg.dev/ivory-setup-362907/microservices-demo/productcatalogservice:v0.4.0
         ports:
         - containerPort: 3550
         env:
         - name: PORT
           value: "3550"
-        - name: DISABLE_STATS
-          value: "1"
-        - name: DISABLE_TRACING
-          value: "1"
-        - name: DISABLE_PROFILER
-          value: "1"
         readinessProbe:
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:3550"]
@@ -654,12 +622,6 @@ spec:
         env:
         - name: PORT
           value: "7000"
-        - name: DISABLE_TRACING
-          value: "1"
-        - name: DISABLE_PROFILER
-          value: "1"
-        - name: DISABLE_DEBUGGER
-          value: "1"
         readinessProbe:
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:7000"]
@@ -721,12 +683,6 @@ spec:
         env:
         - name: PORT
           value: "50051"
-        - name: DISABLE_STATS
-          value: "1"
-        - name: DISABLE_TRACING
-          value: "1"
-        - name: DISABLE_PROFILER
-          value: "1"
         readinessProbe:
           periodSeconds: 5
           exec:
@@ -855,10 +811,6 @@ spec:
         env:
         - name: PORT
           value: "9555"
-        - name: DISABLE_STATS
-          value: "1"
-        - name: DISABLE_TRACING
-          value: "1"
         resources:
           requests:
             cpu: 200m
